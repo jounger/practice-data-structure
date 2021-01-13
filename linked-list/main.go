@@ -1,5 +1,9 @@
 package main
 
+import (
+	"fmt"
+)
+
 func main() {
 	// init a linked list
 	list := &LinkedList{head: &Node{data: 1}}
@@ -15,4 +19,9 @@ func main() {
 	// delete node by given index
 	list.deleteIdx(1)
 	list.print()
+	// check if single linked list is palindrome
+	list.push(0)
+	list.push(-1)
+	list.print()
+	fmt.Println(list.isPalindrome())
 }

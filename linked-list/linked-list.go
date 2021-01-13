@@ -130,3 +130,24 @@ func (l *LinkedList) detectLoop() bool {
 	}
 	return false
 }
+
+// Check if single linked list is palindrome
+func (l *LinkedList) isPalindrome() bool {
+	stack := []int{}
+	for head := l.head; head != nil; head = head.next {
+		stack = append(stack, head.data)
+	}
+	i := len(stack) - 1
+	for head := l.head; head != nil; head = head.next {
+		if head.data == stack[i] {
+			if i == 0 {
+				return true
+			}
+			i--
+			continue
+		}
+		return false
+	}
+	
+	return false
+}
