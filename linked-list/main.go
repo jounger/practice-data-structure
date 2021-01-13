@@ -24,4 +24,7 @@ func main() {
 	list.push(-1)
 	list.print()
 	fmt.Println(list.isPalindrome())
+	// remove duplicate element in sorted array
+	list.removeDuplicatesUnsorted()
+	list.print()
 }

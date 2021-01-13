@@ -151,3 +151,32 @@ func (l *LinkedList) isPalindrome() bool {
 	
 	return false
 }
+
+// Remove duplicate element in list (sorted)
+func (l *LinkedList) removeDuplicatesSorted() {
+	head := l.head
+	for head != nil {
+		if head.next != nil && head.data == head.next.data {
+			head.next = head.next.next
+		} else {
+			head = head.next
+		}
+	}
+}
+
+// Remove duplicate element in list (unsorted)
+func (l *LinkedList) removeDuplicatesUnsorted() {
+	m := make(map[int]int)
+	temp := l.head
+	var prev *Node
+
+	for temp != nil {
+		if m[temp.data] >= 1 {
+			prev.next = temp.next
+		} else {
+			m[temp.data] += 1
+			prev = temp
+		}
+		temp = temp.next
+	}
+}
