@@ -63,3 +63,70 @@ func (l *LinkedList) deleteIdx(idx int) {
 		prev.next = temp.next
 	}
 }
+
+// Delete the list
+func (l *LinkedList) destroy() {
+	l.head = nil
+}
+
+// Count the length of list
+func (l *LinkedList) length() int {
+	head := l.head
+	count := 0
+	for head != nil {
+		count++
+		head = head.next
+	}
+	return count
+}
+
+// Find an element in list and return boolean
+func (l *LinkedList) isExist(key int) bool {
+	head := l.head
+	for head != nil {
+		if head.data == key {
+			return true
+		}
+		head = head.next
+	}
+	return false
+}
+
+// Find an element in list by index and return it
+func (l *LinkedList) get(idx int) *Node {
+	head := l.head
+	for i := 0; i < idx && head != nil; i++ {
+		if i == idx {
+			return head
+		}
+		head = head.next
+	}
+	return nil
+}
+
+// Count how many times a key show up in list
+func (l *LinkedList) countTimes(key int) int {
+	head := l.head
+	count := 0
+	for head != nil {
+		if head.data == key {
+			count++
+		}
+		head = head.next
+	}
+	return count
+}
+
+// Detect if a list has been loop
+func (l *LinkedList) detectLoop() bool {
+	m := make(map[*int]int)
+	head := l.head
+	for head != nil {
+		if m[&head.data] > 1 {
+			return true
+		}
+		m[&head.data] += 1 
+		head = head.next
+	}
+	return false
+}
