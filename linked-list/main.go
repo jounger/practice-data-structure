@@ -11,4 +11,8 @@ func main() {
 	// delete node by given key
 	list.delete(0)
 	list.print()
+
+	// delete node by given index
+	list.deleteIdx(1)
+	list.print()
 }
