@@ -18,7 +18,11 @@ func (l *LinkedList) print() {
 	head := l.head
 	for head != nil {
 		fmt.Print(head.data, " ")
-		head = head.next
+		if head.next != nil {
+			head = head.next
+		} else {
+			break
+		}
 	}
 	fmt.Println()
 }
@@ -179,4 +183,9 @@ func (l *LinkedList) removeDuplicatesUnsorted() {
 		}
 		temp = temp.next
 	}
+}
+
+// Remove duplicate element in list (unsorted)
+func (l *LinkedList) reverse() {
+	// TODO: reverse a list
 }
