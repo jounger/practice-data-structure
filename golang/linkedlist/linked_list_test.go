@@ -5,7 +5,7 @@ import (
 )
 
 func TestPush(t *testing.T) {
-	list := &LinkedList{}
+	var list LinkedList
 	list.push(0)
 	if list.head.data != 0 {
 		t.Errorf("LinkedList.push(0) != %d", list.head.data)
@@ -13,7 +13,7 @@ func TestPush(t *testing.T) {
 }
 
 func TestAppend(t *testing.T) {
-	list := &LinkedList{}
+	var list LinkedList
 	list.push(0)
 	list.append(1)
 	for list.head != nil {
