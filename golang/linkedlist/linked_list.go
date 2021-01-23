@@ -151,7 +151,7 @@ func (l *LinkedList) detectLoop() bool {
 	m := make(map[*int]int)
 	head := l.head
 	for head != nil {
-		if m[&head.data] > 1 {
+		if m[&head.data] > 0 {
 			return true
 		}
 		m[&head.data] += 1 

@@ -4,12 +4,25 @@ import (
 	"testing"
 )
 
+const maxInput int = 100
+
+type Test struct {
+	input [maxInput]int
+	expected [maxInput]int
+}
+
 func TestPush(t *testing.T) {
 	var list LinkedList
-	list.push(0)
-	if list.head.data != 0 {
-		t.Errorf("LinkedList.push(0) != %d", list.head.data)
+	test := &Test{
+		input: [maxInput]int{1,2,3},
+		expected: [maxInput]int{1,2,3},
 	}
+	for i, val := range test.input {
+		list.push(val)
+		if list.head.data != test.expected[i] {
+			t.Errorf("LinkedList.push(%d) != %d", val, test.expected[i])
+		}
+	}	
 }
 
 func TestAppend(t *testing.T) {
@@ -25,4 +38,8 @@ func TestAppend(t *testing.T) {
 		}
 		list.head = list.head.next
 	}
+}
+
+func TestDelete(t *testing.T) {
+
 }
